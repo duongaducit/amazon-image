@@ -24,8 +24,8 @@ app.get('/', (req, res) => {
 app.use('/product', productRouter);
 
 
-//server listens to port 8082
-const server = app.listen(4000, (err) => {
+const port = process.env.PORT || 3000
+const server = app.listen(port, (err) => {
     if (err)
         throw err;
 });
