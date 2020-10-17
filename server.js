@@ -20,7 +20,9 @@ app.use(cors(corsOptions));
 app.get('/', (req, res) => {
     res.json('welcome to express app');
 });
-
+app.post('/', (req, res) => {
+    res.json('test post');
+});
 app.use('/product', productRouter);
 
 
