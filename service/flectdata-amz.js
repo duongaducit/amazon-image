@@ -45,7 +45,7 @@ async function getHTML(productURL) {
             rs = JSON.parse(rs);
             // rs = rs.colorImages.initial;
             rs.forEach(element => {
-                image_list.push(element.hiRes);
+                image_list.push(element.hiRes || element.large);
             });
         }
         // let img = $('#main-image-container .imgTagWrapper').find('img').each(function() { 
