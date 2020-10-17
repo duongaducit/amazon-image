@@ -25,7 +25,7 @@ app.use('/product', productRouter);
 
 
 //server listens to port 8082
-const server = app.listen(80, (err) => {
+const server = app.listen(4000, (err) => {
     if (err)
         throw err;
 });
