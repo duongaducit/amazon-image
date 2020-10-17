@@ -9,10 +9,14 @@ let http = require('https');
 const productRouter = require('./router.product');
 const { head } = require('./router.product');
 
-var whitelist = [];
+var whitelist = ['http://localhost:4200', 'http://34.84.149.232', 'http://listing.supportseller.com', 'https://listing.supportseller.com'];
 var corsOptions = {
     origin: function (origin, callback) {
-        callback(null, true)
+        if (!origin || whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
     }
 }
 app.use(cors(corsOptions));
@@ -20,13 +24,11 @@ app.use(cors(corsOptions));
 app.get('/', (req, res) => {
     res.json('welcome to express app');
 });
-app.post('/', (req, res) => {
-    res.json('test post');
-});
+
 app.use('/product', productRouter);
 
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 const server = app.listen(port, (err) => {
     if (err)
         throw err;
