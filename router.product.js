@@ -24,6 +24,6 @@ productRouter.route('/find').post(function (req, res) {
   });
 })
 productRouter.route('/test').post(function (req, res) {
-  res.status(200).json(product);
+  res.status(200).json('test pr');
 })
 module.exports = productRouter;
