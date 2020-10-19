@@ -33,5 +33,6 @@ const server = app.listen(port, (err) => {
     if (err)
         throw err;
 });
+server.timeout = 60000;
 
 
